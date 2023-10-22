@@ -47,8 +47,8 @@ def ProfileDetails(request, id):
 
 
 def profile_list_view(request):
-    # api_url = 'http://127.0.0.1:8000/api/profile/'
-    api_url = 'http://192.168.0.126:8080/api/profile/'
+    api_url = 'http://127.0.0.1:8000/api/profile/'
+    # api_url = 'http://192.168.0.126:8080/api/profile/'
     response = requests.get(api_url)
 
     if response.status_code == 200:
