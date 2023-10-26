@@ -1,4 +1,5 @@
 import requests
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -47,8 +48,8 @@ def ProfileDetails(request, id):
 
 
 def profile_list_view(request):
-    api_url = 'http://127.0.0.1:8000/api/profile/'
-    # api_url = 'http://192.168.0.126:8080/api/profile/'
+    domain = get_current_site(request).domain
+    api_url = f'http://{domain}/api/profile/'
     response = requests.get(api_url)
 
     if response.status_code == 200:
